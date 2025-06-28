@@ -85,13 +85,13 @@ export const authMiddleware = async (
 };
 
 // GraphQL Context authentication helper
-export const requireAuth = (user: any) => {
-  if (!user) {
+export const requireAuth = (context: any) => {
+  if (!context) {
     throw new AuthenticationError(
       "You must be logged in to perform this action"
     );
   }
-  return user;
+  return context.user;
 };
 
 // Role-based authorization helper
